@@ -12,6 +12,16 @@ private:
     string customerName;
     string accountType;
     double balance;
+
+public:
+    BankAccount();
+
+    BankAccount(
+        long long accNo,
+        string name,
+        string type,
+        double initialBalance
+    );
 };
 
 #endif

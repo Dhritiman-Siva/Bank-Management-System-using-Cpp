@@ -7,7 +7,11 @@ using namespace std;
 
 class BankAccount
 {
-
+private:
+    long long accountNumber;
+    string customerName;
+    string accountType;
+    double balance;
 };
 
 #endif

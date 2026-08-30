@@ -27,6 +27,12 @@ public:
     string getCustomerName() const;
     string getAccountType() const;
     double getBalance() const;
+
+    bool deposit(double amount);
+    bool withdraw(double amount);
+
+    void displayDetails() const;
+    string toFileString() const;
 };
 
 #endif

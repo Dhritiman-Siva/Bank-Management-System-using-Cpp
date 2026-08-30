@@ -22,6 +22,11 @@ public:
         string type,
         double initialBalance
     );
+
+    long long getAccountNumber() const;
+    string getCustomerName() const;
+    string getAccountType() const;
+    double getBalance() const;
 };
 
 #endif

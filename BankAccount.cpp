@@ -22,3 +22,24 @@ BankAccount::BankAccount(
     accountType = type;
     balance = initialBalance;
 }
+
+long long BankAccount::getAccountNumber() const
+{
+    return accountNumber;
+}
+
+string BankAccount::getCustomerName() const
+{
+    return customerName;
+}
+
+string BankAccount::getAccountType() const
+{
+    return accountType;
+}
+
+double BankAccount::getBalance() const
+{
+    return balance;
+}
+

@@ -10,3 +10,15 @@ BankAccount::BankAccount()
     accountType = "";
     balance = 0.0;
 }
+
+BankAccount::BankAccount(
+    long long accNo,
+    string name,
+    string type,
+    double initialBalance)
+{
+    accountNumber = accNo;
+    customerName = name;
+    accountType = type;
+    balance = initialBalance;
+}

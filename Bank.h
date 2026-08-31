@@ -14,7 +14,14 @@ private:
     string filename;
 
 public:
-
+    void createAccount();
+    void depositMoney();
+    void withdrawMoney();
+    void checkBalance();
+    void displayAccount();
+    void displayAllAccounts();
+    void loadAccounts();
+    void saveAccounts();
 };
 
 #endif

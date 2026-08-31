@@ -66,3 +66,24 @@ bool BankAccount::withdraw(double amount)
 
     return true;
 }
+
+void BankAccount::displayDetails() const
+{
+    cout << "\n-----------------------------------\n";
+    cout << "        ACCOUNT DETAILS\n";
+    cout << "-----------------------------------\n";
+
+    cout << "Account Number : "
+         << accountNumber << endl;
+
+    cout << "Customer Name  : "
+         << customerName << endl;
+
+    cout << "Account Type   : "
+         << accountType << endl;
+
+    cout << "Balance        : Rs. "
+         << balance << endl;
+
+    cout << "-----------------------------------\n";
+}

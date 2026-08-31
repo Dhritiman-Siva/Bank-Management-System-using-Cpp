@@ -13,6 +13,9 @@ private:
     vector<BankAccount> accounts;
     string filename;
 
+    long long generateAccountNumber();
+    int findAccountIndex(long long accountNumber);
+
 public:
     void createAccount();
     void depositMoney();

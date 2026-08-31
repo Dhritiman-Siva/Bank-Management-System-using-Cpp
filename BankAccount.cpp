@@ -43,3 +43,14 @@ double BankAccount::getBalance() const
     return balance;
 }
 
+bool BankAccount::deposit(double amount)
+{
+    if (amount <= 0)
+    {
+        return false;
+    }
+
+    balance += amount;
+
+    return true;
+}

@@ -17,6 +17,7 @@ private:
     int findAccountIndex(long long accountNumber);
 
 public:
+    Bank(string file);
     void createAccount();
     void depositMoney();
     void withdrawMoney();

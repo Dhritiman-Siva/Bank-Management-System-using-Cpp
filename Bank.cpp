@@ -8,3 +8,12 @@
 #include <limits>
 
 using namespace std;
+
+Bank::Bank(string file)
+{
+    filename = file;
+
+    srand(static_cast<unsigned int>(time(nullptr)));
+
+    loadAccounts();
+}

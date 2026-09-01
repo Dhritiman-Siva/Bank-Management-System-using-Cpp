@@ -92,3 +92,29 @@ void Bank::depositMoney() {
     cout << "Invalid deposit amount.\n";
   }
 }
+
+void Bank::withdrawMoney() {
+  long long accountNumber;
+  double amount;
+
+  cout << "\n========== WITHDRAW ==========\n";
+
+  cout << "Enter account number: ";
+  cin >> accountNumber;
+
+  int index = findAccountIndex(accountNumber);
+
+  if (index == -1) {
+    cout << "Account not found.\n";
+    return;
+  }
+
+  cout << "Enter withdrawal amount: ";
+  cin >> amount;
+
+  if (accounts[index].withdraw(amount)) {
+    cout << "Withdrawal successful!\n";
+  } else {
+    cout << "Invalid withdrawal or insufficient balance.\n";
+  }
+}

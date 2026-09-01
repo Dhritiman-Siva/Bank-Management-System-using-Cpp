@@ -54,4 +54,9 @@ void Bank::createAccount() {
 
   cout << "Enter initial deposit: ";
   cin >> initialBalance;
+
+  if (initialBalance < 0) {
+    cout << "Initial balance cannot be negative.\n";
+    return;
+  }
 }

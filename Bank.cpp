@@ -1,46 +1,57 @@
 #include "Bank.h"
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <iomanip>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
 #include <limits>
+#include <sstream>
 
 using namespace std;
 
-Bank::Bank(string file)
-{
-    filename = file;
+Bank::Bank(string file) {
+  filename = file;
 
-    srand(static_cast<unsigned int>(time(nullptr)));
+  srand(static_cast<unsigned int>(time(nullptr)));
 
-    loadAccounts();
+  loadAccounts();
 }
 
-int Bank::findAccountIndex(long long accountNumber)
-{
-    for (int i = 0; i < accounts.size(); i++)
-    {
-        if (accounts[i].getAccountNumber() == accountNumber)
-        {
-            return i;
-        }
+int Bank::findAccountIndex(long long accountNumber) {
+  for (int i = 0; i < accounts.size(); i++) {
+    if (accounts[i].getAccountNumber() == accountNumber) {
+      return i;
     }
+  }
 
-    return -1;
+  return -1;
 }
 
-long long Bank::generateAccountNumber()
-{
-    long long accountNumber;
+long long Bank::generateAccountNumber() {
+  long long accountNumber;
 
-    do
-    {
-        accountNumber =
-            100000 + rand() % 900000;
-    }
-    while (findAccountIndex(accountNumber) != -1);
+  do {
+    accountNumber = 100000 + rand() % 900000;
+  } while (findAccountIndex(accountNumber) != -1);
 
-    return accountNumber;
+  return accountNumber;
+}
+
+void Bank::createAccount() {
+  string name;
+  string accountType;
+  double initialBalance;
+
+  cout << "\n========== CREATE ACCOUNT ==========\n";
+
+  cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+  cout << "Enter customer name: ";
+  getline(cin, name);
+
+  cout << "Enter account type: ";
+  getline(cin, accountType);
+
+  cout << "Enter initial deposit: ";
+  cin >> initialBalance;
 }

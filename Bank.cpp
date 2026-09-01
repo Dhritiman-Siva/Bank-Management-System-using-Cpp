@@ -17,3 +17,16 @@ Bank::Bank(string file)
 
     loadAccounts();
 }
+
+int Bank::findAccountIndex(long long accountNumber)
+{
+    for (int i = 0; i < accounts.size(); i++)
+    {
+        if (accounts[i].getAccountNumber() == accountNumber)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}

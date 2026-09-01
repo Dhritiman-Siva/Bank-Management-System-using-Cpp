@@ -30,3 +30,17 @@ int Bank::findAccountIndex(long long accountNumber)
 
     return -1;
 }
+
+long long Bank::generateAccountNumber()
+{
+    long long accountNumber;
+
+    do
+    {
+        accountNumber =
+            100000 + rand() % 900000;
+    }
+    while (findAccountIndex(accountNumber) != -1);
+
+    return accountNumber;
+}

@@ -66,3 +66,29 @@ void Bank::createAccount() {
 
   accounts.push_back(newAccount);
 }
+
+void Bank::depositMoney() {
+  long long accountNumber;
+  double amount;
+
+  cout << "\n========== DEPOSIT ==========\n";
+
+  cout << "Enter account number: ";
+  cin >> accountNumber;
+
+  int index = findAccountIndex(accountNumber);
+
+  if (index == -1) {
+    cout << "Account not found.\n";
+    return;
+  }
+
+  cout << "Enter deposit amount: ";
+  cin >> amount;
+
+  if (accounts[index].deposit(amount)) {
+    cout << "Deposit successful!\n";
+  } else {
+    cout << "Invalid deposit amount.\n";
+  }
+}

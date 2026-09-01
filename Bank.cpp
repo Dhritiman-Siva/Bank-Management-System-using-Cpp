@@ -59,4 +59,10 @@ void Bank::createAccount() {
     cout << "Initial balance cannot be negative.\n";
     return;
   }
+
+  long long accountNumber = generateAccountNumber();
+
+  BankAccount newAccount(accountNumber, name, accountType, initialBalance);
+
+  accounts.push_back(newAccount);
 }

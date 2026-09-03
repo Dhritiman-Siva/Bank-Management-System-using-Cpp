@@ -118,3 +118,28 @@ void Bank::withdrawMoney() {
     cout << "Invalid withdrawal or insufficient balance.\n";
   }
 }
+
+void Bank::checkBalance()
+{
+    long long accountNumber;
+
+    cout << "\n========== BALANCE CHECK ==========\n";
+
+    cout << "Enter account number: ";
+    cin >> accountNumber;
+
+    int index =
+        findAccountIndex(accountNumber);
+
+    if (index == -1)
+    {
+        cout << "Account not found.\n";
+        return;
+    }
+
+    cout << fixed << setprecision(2);
+
+    cout << "Current Balance: Rs. "
+         << accounts[index].getBalance()
+         << endl;
+}

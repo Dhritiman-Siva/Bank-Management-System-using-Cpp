@@ -212,3 +212,39 @@ void Bank::loadAccounts()
     file.close();
 }
 
+void Bank::displayAccount()
+{
+    long long accountNumber;
+
+    cout << "\n========== DISPLAY ACCOUNT ==========\n";
+
+    cout << "Enter account number: ";
+    cin >> accountNumber;
+
+    int index = findAccountIndex(accountNumber);
+
+    if (index == -1)
+    {
+        cout << "Account not found.\n";
+        return;
+    }
+
+    accounts[index].displayDetails();
+}
+
+void Bank::displayAllAccounts()
+{
+    cout << "\n========== ALL ACCOUNTS ==========\n";
+
+    if (accounts.empty())
+    {
+        cout << "No accounts found.\n";
+        return;
+    }
+
+    for (const BankAccount& account : accounts)
+    {
+        account.displayDetails();
+    }
+}
+

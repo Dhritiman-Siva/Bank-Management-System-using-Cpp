@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 #include "Bank.h"
 
@@ -25,7 +26,13 @@ int main()
         cout << "7. Exit\n";
 
         cout << "\nEnter choice: ";
-        cin >> choice;
+        if (!(cin >> choice))
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a number from 1 to 7.\n";
+            continue;
+        }
 
         switch (choice)
         {
@@ -54,6 +61,7 @@ int main()
                 break;
 
             case 7:
+                bank.saveAccounts();
                 cout << "Thank you!\n";
                 return 0;
 

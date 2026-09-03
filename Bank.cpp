@@ -143,3 +143,22 @@ void Bank::checkBalance()
          << accounts[index].getBalance()
          << endl;
 }
+
+void Bank::saveAccounts()
+{
+    ofstream file(filename);
+
+    if (!file)
+    {
+        cout << "Error opening file.\n";
+        return;
+    }
+
+    for (const BankAccount& account : accounts)
+    {
+        file << account.toFileString()
+             << endl;
+    }
+
+    file.close();
+}

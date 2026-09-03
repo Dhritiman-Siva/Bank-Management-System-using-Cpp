@@ -1,5 +1,7 @@
 #include "BankAccount.h"
+#include <iomanip>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -86,4 +88,17 @@ void BankAccount::displayDetails() const
          << balance << endl;
 
     cout << "-----------------------------------\n";
+}
+
+string BankAccount::toFileString() const
+{
+    stringstream ss;
+
+    ss << accountNumber << "|"
+       << customerName << "|"
+       << accountType << "|"
+       << fixed << setprecision(2)
+       << balance;
+
+    return ss.str();
 }

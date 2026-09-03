@@ -162,3 +162,53 @@ void Bank::saveAccounts()
 
     file.close();
 }
+
+void Bank::loadAccounts()
+{
+    ifstream file(filename);
+
+    if (!file)
+    {
+        return;
+    }
+
+    accounts.clear();
+
+    string line;
+
+    while (getline(file, line))
+    {
+        if (line.empty())
+            continue;
+
+        stringstream ss(line);
+
+        string accountNumberString;
+        string customerName;
+        string accountType;
+        string balanceString;
+
+        getline(ss, accountNumberString, '|');
+        getline(ss, customerName, '|');
+        getline(ss, accountType, '|');
+        getline(ss, balanceString, '|');
+
+        long long accountNumber =
+            stoll(accountNumberString);
+
+        double balance =
+            stod(balanceString);
+
+        BankAccount account(
+            accountNumber,
+            customerName,
+            accountType,
+            balance
+        );
+
+        accounts.push_back(account);
+    }
+
+    file.close();
+}
+
